@@ -88,10 +88,6 @@ body {
   box-shadow: 1px 1px 3px rgba(200, 200, 200, 0.6);
 }
 
-#close {
-  z-index: 5;
-}
-
 .menu {
   display: none;
   z-index: 3;
@@ -138,21 +134,69 @@ body {
   background-color: #cccccc6c;
 }
 
+.content {
+  margin-top: 60px;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-image {
+  max-width: 200px;
+  float: right;
+  animation: spin 5s infinite linear;
+}
+
+@keyframes spin {
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(360deg)}
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  .page {
+    grid-template-rows: 52vw auto;
+  }
+
   .header {
+    margin: 0;
     height: 52vw;
   }
 
   .header-sticky-title {
+    height: 52vw;
   }
 
   .toggle-menu {
-    grid-area: sticky;
+    margin-top: 52vw;
+    left: 0;
+  }
+
+  .profile-image {
+    float: none;
+  }
+
+
+  .page-content {
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 0;
+    height: 100%;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .header-sticky-title {
-    font-size: min(2em, 8vw);
+    font-size: min(2em, 7vw);
   }
 }
 
@@ -160,6 +204,10 @@ body {
 @media only screen and (min-width: 600px) {
   body {
     background-color: red;
+  }
+
+  .page {
+    grid-template-rows: 300px 1fr;
   }
 
   .header {
@@ -185,6 +233,8 @@ body {
     width: 100%;
     padding: 0;
     z-index: 2;
+    justify-content: center;
+    align-items: center;
   }
 
   .menu-content {
@@ -193,7 +243,7 @@ body {
     padding: 0;
     height: 40px;
   }
-  
+
   .menu-link {
     width: auto;
     padding-right: 20px;
@@ -207,6 +257,10 @@ body {
     height: 100%;
   }
 
+  .header-sticky-title {
+    margin-left: 30px;
+  }
+
   .toggle-menu {
     display: none;
   }
@@ -216,6 +270,48 @@ body {
 @media only screen and (min-width: 992px) {
   body {
     background-color: yellow;
+  }
+
+  .page {
+    grid-template-rows: 300px 1fr;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .page-content {
+    display: flex;
+    flex-direction: row-reverse;
+    grid-area: sticky;
+  }
+
+  .menu {
+    flex-direction: column;
+    height: 100%;
+    width: 20%;
+    grid-area: sticky;
+    justify-content: flex-start;
+  }
+
+  .menu-content {
+    grid-area: sticky;
+    flex-direction: column;
+    position: sticky;
+    padding-top: 150px;
+    margin-top: -75px;
+  }
+
+  .menu-link {
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 100%;
+  }
+
+  .content {
+    width: 80%;
   }
 }
 

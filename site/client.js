@@ -3,7 +3,7 @@ let open = '<i class="fas fa-bars"></i>';
 
 function onReady() {
   console.log('JS');
-  $('.menu').toggle(menuState);
+  // $('.menu').toggle(menuState);
   $('.toggle-menu').on('click', menuOpen);
   $('.toggle-icon').append(open);
 }

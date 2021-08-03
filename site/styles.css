@@ -20,7 +20,7 @@ body {
   box-shadow: 5px 5px 10px rgba(200, 200, 200, 0.8);
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 300px;
+  /* grid-template-rows: 300px; */
   grid-template-areas: "header" "sticky";
   overflow: scroll;
   position: relative;
@@ -34,7 +34,6 @@ body {
   background-position: center top;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
-  min-width: 400px;
   z-index: 2;
   position: relative;
 }
@@ -89,6 +88,10 @@ body {
   box-shadow: 1px 1px 3px rgba(200, 200, 200, 0.6);
 }
 
+#close{
+  z-index: 5;
+}
+
 .menu {
   z-index: 3;
   background-color: #1c1c1c3c;
@@ -118,16 +121,35 @@ body {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+
+
+  .header {
+    height: 52vw;
+  }
+
+  .header-sticky-title {
+  }
+
+  .toggle-menu {
+    grid-area: sticky;
+  }
+
+  .header-sticky-title {
+    font-size: min(2em, 8vw);
+    
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   body {
     background-color: red;
+
   }
 
   .header {
     background-size: cover;
+    height: 300px;
   }
 }
 

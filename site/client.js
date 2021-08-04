@@ -6,6 +6,7 @@ function onReady() {
   // $('.menu').toggle(menuState);
   $('.toggle-menu').on('click', menuOpen);
   $('.toggle-icon').append(open);
+  $('.toggle-expand').on('click', expand);
 }
 
 let menuState = false;
@@ -23,4 +24,12 @@ function menuOpen() {
       $('.toggle-icon').empty().append(open).fadeIn();
     });
   }
+}
+
+let rotation = {'toggle-expand-zeroone': 0, 'toggle-expand-zerotwo': 0, 'toggle-expand-zerothree': 0};
+function expand() {
+  $(this).next('div').slideToggle(500);
+  let id = $(this).attr('id');
+  console.log(id, rotation);
+  $(this).children('i').css({transform: `rotate(${rotation[id] = Number(rotation[id] += 180)}deg)`, 'transition': 'all ease 1s'});
 }

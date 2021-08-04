@@ -36,6 +36,7 @@ body {
   border-top-left-radius: 15px;
   z-index: 2;
   position: relative;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .header-sticky {
@@ -49,11 +50,13 @@ body {
   top: 0;
   position: sticky;
   z-index: 2;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .header-sticky-title {
   grid-area: header / sticky;
   margin-left: 80px;
+  height: 80px;
   z-index: 2;
   position: sticky;
   top: 20px;
@@ -180,7 +183,6 @@ body {
     float: none;
   }
 
-
   .page-content {
     display: flex;
     flex-direction: column;
@@ -198,6 +200,18 @@ body {
   .header-sticky-title {
     font-size: min(2em, 7vw);
   }
+}
+
+.toggle-player {
+  width: 100%;
+  
+}
+
+.player {
+  margin-bottom: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
 }
 
 .card {
@@ -225,21 +239,13 @@ body {
   border-radius: 15px;
 }
 
-.card-image {
-  grid-area: image;
-  background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%),url("./images/zelda-synth.jpeg");
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  background-size: cover;
-}
-
 .card-text {
   grid-area: text;
   margin: 25px;
   transform: translateZ(30px);
 }
 
-.card-text .data {
+.card-text .number {
   color: rgb(255, 7, 110);
   font-size: 13px;
 }
@@ -282,8 +288,28 @@ body {
   border-right: 1px solid rgba(0,0,0,0.6);
 }
 
-.space {
-  width: auto;
+.toggle-expand {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #ddd;
+  background-color: transparent;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.toggle-expand i {
+  font-size: 30px;
+  color: #ddd;
+}
+
+.toggle-expand:hover {
+  background-color: #4c4c4c;
 }
 
 .card:hover {
@@ -337,7 +363,7 @@ body {
   display: block;
 }
 
-.zeroone .card-image {
+#zeroone .card-image {
   grid-area: image;
   background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%),url("./images/zeroone4004.png");
   border-top-left-radius: 15px;
@@ -346,7 +372,7 @@ body {
 
 }
 
-.zerotwo .card-image {
+#zerotwo .card-image {
   grid-area: image;
   background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%),url("./images/zerotwo4004.jpeg");
   border-top-left-radius: 15px;
@@ -354,7 +380,7 @@ body {
   background-size: cover;
 
 }
-.zerothree .card-image {
+#zerothree .card-image {
   grid-area: image;
   background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%),url("./images/zerothree4004.jpeg");
   border-top-left-radius: 15px;

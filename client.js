@@ -33,3 +33,21 @@ function expand() {
   console.log(id, rotation);
   $(this).children('i').css({transform: `rotate(${rotation[id] = Number(rotation[id] += 180)}deg)`, 'transition': 'all ease 1s'});
 }
+
+// function offsetAnchor() {
+//   console.log('in offset anchor');
+  
+//   if (location.hash.length !== 0) {
+//     var x = window.scrollX;
+//     var y = window.scrollY + 1000;
+//     window.scrollTo(x, y);
+//   }
+// }
+
+// $(document).on('click', 'a[href^="#"]', function(event) {
+//   window.setTimeout(function() {
+//     offsetAnchor();
+//   }, 0);
+// });
+
+// window.setTimeout(offsetAnchor, 0);

@@ -88,7 +88,15 @@ body {
 
 .toggle-menu:active {
   background-color: #3c3c3c;
-  box-shadow: 1px 1px 3px rgba(200, 200, 200, 0.6);
+  box-shadow: 1
+  px 1px 3px rgba(200, 200, 200, 0.6);
+}
+
+.anchor {
+  top: -90px;
+  visibility: hidden;
+  display: block;
+  position: relative;
 }
 
 .menu {
@@ -131,6 +139,10 @@ body {
   background-color: #1c1c1c6c;
   text-align: center;
   position: relative;
+}
+
+.menu-link:hover {
+  background-color: #4c4c4c6c;
 }
 
 .menu-link:active {
@@ -496,6 +508,10 @@ body {
     border-bottom: 1px solid #ddd;
     border-top: 1px solid #ddd;
     width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    text-decoration: none;
+    transition: all 0.1s ease-in-out;
   }
 
   .content {

@@ -11,7 +11,6 @@ body {
 .page {
   margin: 30px;
   height: 90vh;
-  /* min-width: 1240px; */
   width: 100%;
   max-width: 1240px;
   border-radius: 18px;
@@ -20,7 +19,6 @@ body {
   box-shadow: 5px 5px 10px rgba(200, 200, 200, 0.8);
   display: grid;
   grid-template-columns: 1fr;
-  /* grid-template-rows: 300px; */
   grid-template-areas: "header" "sticky";
   overflow: scroll;
   position: relative;
@@ -56,10 +54,12 @@ body {
 .header-sticky-title {
   grid-area: header / sticky;
   margin-left: 80px;
-  height: 80px;
+  height: 50px;
   z-index: 2;
   position: sticky;
   top: 20px;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .toggle-menu {
@@ -498,8 +498,8 @@ body {
     grid-area: sticky;
     flex-direction: column;
     position: sticky;
-    padding-top: 150px;
-    margin-top: -75px;
+    padding-top: 170px;
+    margin-top: -80px;
   }
 
   .menu-link {
@@ -510,6 +510,7 @@ body {
     width: 100%;
     padding-right: 0;
     padding-left: 0;
+    padding-top: 20px;
     text-decoration: none;
     transition: all 0.1s ease-in-out;
   }

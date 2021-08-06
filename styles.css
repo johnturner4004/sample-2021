@@ -1,11 +1,41 @@
+:root {
+  --background1: #1c1c1c;
+  --background2: #2c2c2c;
+  --backgroundMenu: #2c2c2ccc;
+  --menuActive: #3c3c3c;
+  --menuHover: #4c4c4c;
+  --menuLinkActive: #cccccc;
+  --text: #ddd;
+  --text2: #ddd;
+  --TzGPurple: #ad00ff;
+  --shadow: #c8c8c8cc;
+  --shadowHeader: #00000080;
+  --backgroundImg: url("./images/milky-way-2695569_1920.jpg")
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+  --background2: #fefefe;
+  --backgroundMenu: #fefefeb3;
+  --background3: #4c4c4c;
+  --text: #3c3c3c;
+  --text2: white;
+  --shadow: #00000080;
+  --backgroundImg: url("./images/earth.jpeg");
+  --menuHover: #CFCFCF;
+  --menuActive: #B1B1B1;
+  }
+}
+
 body {
-  background-color: #1c1c1c;
+  background-color: var(--background1);
   display: flex;
   justify-content: center;
   font-family: Roboto;
-  background: url("./images/milky-way-2695569_1920.jpg");
+  background: var(--backgroundImg);
   background-size: cover;
   background-position: center;
+  font-size: 18pt;
 }
 
 .page {
@@ -14,9 +44,9 @@ body {
   width: 100%;
   max-width: 1240px;
   border-radius: 18px;
-  background: #2c2c2c;
-  color: #ddd;
-  box-shadow: 5px 5px 10px rgba(200, 200, 200, 0.8);
+  background: var(--background2);
+  color: var(--text);
+  box-shadow: 5px 5px 10px var(--shadow);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: "header" "sticky";
@@ -34,7 +64,7 @@ body {
   border-top-left-radius: 15px;
   z-index: 2;
   position: relative;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 10px var(--shadowHeader);
 }
 
 .header-sticky {
@@ -42,13 +72,13 @@ body {
   height: 80px;
   display: flex;
   flex-direction: row;
-  background-color: #ad00ff;
+  background-color: var(--TzGPurple);
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
   top: 0;
   position: sticky;
   z-index: 2;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 10px var(--shadowHeader);
 }
 
 .header-sticky-title {
@@ -74,21 +104,21 @@ body {
   width: 40px;
   height: 40px;
   font-size: 24px;
-  background-color: #2c2c2c;
+  background-color: var(--background2);
   padding: 5px;
-  color: #ddd;
-  box-shadow: 2px 2px 5px rgba(200, 200, 200, 0.8);
+  color: var(--text);
+  box-shadow: 2px 2px 5px var(--shadow);
 }
 
 .toggle-menu:hover {
-  background-color: #4c4c4c;
+  background-color: var(--menuHover);
   box-shadow: 4px 4px 7px rgba(200, 200, 200, 0.6);
   /* transform: scale(1.1); */
 }
 
 .toggle-menu:active {
-  background-color: #3c3c3c;
-  box-shadow: 1 px 1px 3px rgba(200, 200, 200, 0.6);
+  background-color: var(--menuActive);
+  box-shadow: 1px 1px 3px rgba(200, 200, 200, 0.6);
 }
 
 .anchor {
@@ -101,16 +131,16 @@ body {
 .menu {
   display: none;
   z-index: 3;
-  background-color: #1c1c1c3c;
+  background-color: var(--backgroundMenu);
   backdrop-filter: blur(5px);
-  color: #ddd;
+  color: var(--text);
   /* padding: 30px; */
   left: 0;
   top: 0;
   width: 300px;
   height: 100%;
   position: absolute;
-  box-shadow: 0px 4px 10px rgba(200, 200, 200, 0.8);
+  box-shadow: 0px 4px 10px var(--shadow);
 }
 
 .menu-content {
@@ -127,25 +157,25 @@ body {
 }
 
 .menu-link {
-  border-bottom: 1px solid #ddd;
-  border-top: 1px solid #ddd;
+  border-bottom: 1px solid var(--text);
+  border-top: 1px solid var(--text);
   border-left: none;
   border-right: none;
-  color: #ddd;
+  color: var(--text);
   width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: #1c1c1c6c;
+  background-color: var(--background1)6c;
   text-align: center;
   position: relative;
 }
 
 .menu-link:hover {
-  background-color: #4c4c4c6c;
+  background-color: var(--menuHover)6c;
 }
 
 .menu-link:active {
-  background-color: #cccccc6c;
+  background-color: var(--menuLinkActive)6c;
 }
 
 .content {
@@ -202,10 +232,6 @@ body {
   transform: perspective(1000);
 }
 
-.js-tilt-glare {
-  border-radius: 15px;
-}
-
 .card-text {
   grid-area: text;
   margin: 25px;
@@ -250,33 +276,28 @@ body {
   padding: 10px;
 }
 
-.border {
-  border-left: 1px solid rgba(0, 0, 0, 0.6);
-  border-right: 1px solid rgba(0, 0, 0, 0.6);
-}
-
 .toggle-expand {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: #ddd;
+  color: var(--text);
   background-color: transparent;
   border-top: none;
   border-right: none;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--text);
   border-left: none;
   transition: all 0.5s ease-in-out;
 }
 
 .toggle-expand i {
   font-size: 30px;
-  color: #ddd;
+  color: var(--text);
 }
 
 .toggle-expand:hover {
-  background-color: #4c4c4c;
+  background-color: var(--menuHover);
 }
 
 .card:hover {
@@ -375,7 +396,7 @@ li {
 ul li::marker {
   content: "\f11b";
   font-family: "FontAwesome";
-  color: #ddd;
+  color: var(--text);
 }
 
 #fortnitePic {
@@ -399,14 +420,14 @@ ul li::marker {
 }
 
 .contact {
-  filter: drop-shadow(0 0 10px rgba(200, 200, 200, 0.8));
+  filter: drop-shadow(0 0 10px var(--shadow));
   margin: 10px;
   height: 32px;
 }
 
 .github {
-  background-color: rgba(200, 200, 200, 0.8);
-  filter: drop-shadow(0 0 10px rgba(200, 200, 200, 0.8));
+  background-color: #c8c8c8cc;
+  filter: drop-shadow(0 0 10px var(--shadow));
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -421,12 +442,8 @@ ul li::marker {
   flex-direction: row;
   z-index: 6;
   padding: 20px;
-  background-color: #ad00ff;
+  background-color: var(--TzGPurple);
 }
-
-/* .contact {
-  filter: invert(150%) brightness(1.085);
-} */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -437,6 +454,7 @@ ul li::marker {
   .header {
     margin: 0;
     height: 52vw;
+    background-position: left;
   }
 
   .header-sticky-title {
@@ -478,7 +496,7 @@ ul li::marker {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   body {
-    background-color: red;
+    
   }
 
   .page {
@@ -493,15 +511,11 @@ ul li::marker {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  body {
-    background-color: orange;
-  }
-
   .menu {
     grid-area: sticky;
     display: flex;
     flex-direction: row;
-    height: 40px;
+    height: 70px;
     position: sticky;
     top: 80px;
     left: 0;
@@ -527,8 +541,8 @@ ul li::marker {
     border-bottom: none;
     padding-top: 10px;
     margin: 0;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+    border-left: 1px solid var(--text);
+    border-right: 1px solid var(--text);
     height: 100%;
   }
 
@@ -544,7 +558,7 @@ ul li::marker {
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   body {
-    background-color: yellow;
+    
   }
 
   .page {
@@ -573,15 +587,15 @@ ul li::marker {
     grid-area: sticky;
     flex-direction: column;
     position: sticky;
-    padding-top: 170px;
+    padding-top: 230px;
     margin-top: -80px;
   }
 
   .menu-link {
     border-right: none;
     border-left: none;
-    border-bottom: 1px solid #ddd;
-    border-top: 1px solid #ddd;
+    border-bottom: 1px solid var(--text);
+    border-top: 1px solid var(--text);
     width: 100%;
     padding-right: 0;
     padding-left: 0;
@@ -598,6 +612,6 @@ ul li::marker {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   body {
-    background-color: green;
+    
   }
 }

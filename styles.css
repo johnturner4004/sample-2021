@@ -10,20 +10,20 @@
   --TzGPurple: #ad00ff;
   --shadow: #c8c8c8cc;
   --shadowHeader: #00000080;
-  --backgroundImg: url("./images/milky-way-2695569_1920.jpg")
+  --backgroundImg: url("./images/milky-way-2695569_1920.jpg");
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-  --background2: #fefefe;
-  --backgroundMenu: #fefefeb3;
-  --background3: #4c4c4c;
-  --text: #3c3c3c;
-  --text2: white;
-  --shadow: #00000080;
-  --backgroundImg: url("./images/earth.jpeg");
-  --menuHover: #CFCFCF;
-  --menuActive: #B1B1B1;
+    --background2: #fefefe;
+    --backgroundMenu: #fefefeb3;
+    --background3: #4c4c4c;
+    --text: #3c3c3c;
+    --text2: white;
+    --shadow: #00000080;
+    --backgroundImg: url("./images/earth.jpeg");
+    --menuHover: #cfcfcf;
+    --menuActive: #b1b1b1;
   }
 }
 
@@ -129,6 +129,7 @@ body {
 }
 
 .menu {
+  grid-area: header / sticky;
   display: none;
   z-index: 3;
   background-color: var(--backgroundMenu);
@@ -138,8 +139,8 @@ body {
   left: 0;
   top: 0;
   width: 300px;
-  height: 100%;
-  position: absolute;
+  height: 100vh;
+  position: sticky;
   box-shadow: 0px 4px 10px var(--shadow);
 }
 
@@ -165,17 +166,17 @@ body {
   width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: var(--background1)6c;
+  background-color: var(--background1) 6c;
   text-align: center;
   position: relative;
 }
 
 .menu-link:hover {
-  background-color: var(--menuHover)6c;
+  background-color: var(--menuHover) 6c;
 }
 
 .menu-link:active {
-  background-color: var(--menuLinkActive)6c;
+  background-color: var(--menuLinkActive) 6c;
 }
 
 .content {
@@ -496,7 +497,6 @@ ul li::marker {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   body {
-    
   }
 
   .page {
@@ -515,7 +515,7 @@ ul li::marker {
     grid-area: sticky;
     display: flex;
     flex-direction: row;
-    height: 70px;
+    height: 100%;
     position: sticky;
     top: 80px;
     left: 0;
@@ -558,7 +558,6 @@ ul li::marker {
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   body {
-    
   }
 
   .page {
@@ -612,6 +611,5 @@ ul li::marker {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   body {
-    
   }
 }

@@ -1,3 +1,4 @@
+/* custom properties used for dark mode theme */
 :root {
   --color-mode: "dark";
   --background1: #1c1c1c;
@@ -16,11 +17,13 @@
   --toggleButtonBackground: skyblue;
 }
 
+/* switches to light mode based on users system settings */
 @media (prefers-color-scheme: light) {
   :root {
     --color-mode: "light";
   }
 
+  /* custom properties for light mode when set by system settings*/
   :root:not([data-user-color-scheme]) {
     --background2: #fefefe;
     --backgroundMenu: #fefefeb3;
@@ -36,6 +39,9 @@
   }
 }
 
+/* custom properties for light mode when set by the toggle */
+/* if set by toggle buttom the setting is stored in local storage */
+/* to remember the users preference even after refresh */
 [data-user-color-scheme="light"] {
   --background2: #fefefe;
   --backgroundMenu: #fefefeb3;
@@ -63,14 +69,6 @@
   }
 }
 
-.user-toggle {
-  margin: 2rem auto 0 auto;
-  padding-top: 2.5rem;
-  max-width: 20rem;
-  border-top: 1px solid var(--border-color);
-  text-align: center;
-}
-
 body {
   background-color: var(--background1);
   display: flex;
@@ -84,6 +82,7 @@ body {
   transition: all 500ms ease-in-out, color 200ms ease;
 }
 
+/* used to make the card looking area that holds the contents of the page */
 .page {
   margin: 30px;
   height: 90vh;
@@ -102,6 +101,7 @@ body {
   transition: all 500ms ease-in-out, color 200ms ease;
 }
 
+/* settings for the banner image at the top of the page */
 .header {
   grid-area: header;
   background: url("./images/TzG-banner.jpg");
@@ -116,6 +116,7 @@ body {
   box-shadow: 0 5px 10px var(--shadowHeader);
 }
 
+/* settings for the floating header that remains at the top of the page */
 .header-sticky {
   grid-area: header / sticky;
   height: 80px;
@@ -130,6 +131,7 @@ body {
   box-shadow: 0 5px 10px var(--shadowHeader);
 }
 
+/* title for the sticky banner */
 .header-sticky-title {
   grid-area: header / sticky;
   margin-left: 80px;
@@ -142,6 +144,7 @@ body {
   color: #ddd;
 }
 
+/* button to open and close the menu on smaller screens */
 .toggle-menu {
   grid-area: header / sticky;
   position: sticky;
@@ -172,6 +175,7 @@ body {
   box-shadow: 1px 1px 3px rgba(200, 200, 200, 0.6);
 }
 
+/* used to adjust position for page links so they don't load behind the sticky header */
 .anchor {
   top: -90px;
   visibility: hidden;
@@ -241,6 +245,7 @@ body {
   margin-left: 40px;
 }
 
+/* size and animation for the spinning logo */
 .profile-image {
   max-width: 200px;
   float: right;
@@ -263,6 +268,7 @@ body {
   flex-direction: row;
 }
 
+/* styling for the player cards */
 .card {
   display: grid;
   grid-template-columns: 300px;
@@ -306,28 +312,7 @@ body {
   font-size: 28px;
 }
 
-.card-stats {
-  grid-area: stats;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: rgb(255, 7, 110);
-  width: 300px;
-}
-
-.card-stats .stat {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  color: white;
-  padding: 10px;
-}
-
+/* styling for the buttons used to collapse the player info sections */
 .toggle-expand {
   width: 100%;
   display: flex;
@@ -343,6 +328,7 @@ body {
   transition: all 0.5s ease-in-out;
 }
 
+/* used for the icons on the right of the buttons to collapse the player info sections */
 .toggle-expand i {
   font-size: 30px;
   color: var(--text);
@@ -357,6 +343,7 @@ body {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 }
 
+/* rainbow animated box shadow for player cards */
 .rgb::after {
   content: "";
   background: linear-gradient(
@@ -394,6 +381,7 @@ body {
   }
 }
 
+/* used to make cards float on alternating sides of the page-content area */
 #card-1 {
   float: left;
   margin-right: 20px;
@@ -442,20 +430,24 @@ body {
   background-size: cover;
 }
 
+/* removes the default bullets */
 ul {
   list-style-type: none;
 }
 
+/* padding to make space for new bullets */
 li {
   padding-left: 20px;
 }
 
+/* replaced bullet with the controller icon */
 ul li::marker {
   content: "\f11b";
   font-family: "FontAwesome";
   color: var(--text);
 }
 
+/* sets flex settings for contact icon */
 .contact-list {
   display: flex;
   flex-direction: row;
@@ -463,12 +455,14 @@ ul li::marker {
   width: calc(100% - 120px);
 }
 
+/* styling for the contact icons */
 .contact {
   filter: drop-shadow(0 0 10px var(--shadow));
   margin: 10px;
   height: 32px;
 }
 
+/* styling for the git hub link to make it look more like the others */
 .github {
   background-color: #c8c8c8cc;
   filter: drop-shadow(0 0 10px var(--shadow));
@@ -481,6 +475,7 @@ ul li::marker {
   height: 32px;
 }
 
+/* purple footer at the bottom of the page */
 .footer {
   display: flex;
   flex-direction: row;
@@ -490,6 +485,7 @@ ul li::marker {
   background-color: var(--TzGPurple);
 }
 
+/* positions the toggle button for light/dark mode */
 .button-position {
   position: absolute;
   height: fit-content;
@@ -498,6 +494,7 @@ ul li::marker {
   left: 40px;
 }
 
+/* styling for the light/dark mode toggle button */
 .toggle-button {
   position: absolute;
   position: sticky;
@@ -517,6 +514,7 @@ ul li::marker {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  /* resized header size to prevent it from taking up the whole screen on small devices */
   .page {
     grid-template-rows: 52vw auto;
   }
@@ -531,11 +529,13 @@ ul li::marker {
     height: 80px;
   }
 
+  /* lowers the initial position of the menu button to prevent it from covering the banner on small screens */
   .toggle-menu {
     margin-top: 52vw;
     left: 0;
   }
 
+  /* clears float to stop text from wrapping around logo */
   .profile-image {
     float: none;
   }
@@ -578,9 +578,6 @@ ul li::marker {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  body {
-  }
-
   .header {
     height: 52vw;
     max-height: none;
@@ -636,6 +633,8 @@ ul li::marker {
     overflow: hidden;
   }
 
+  /* changes menu from a drawer that loads from the side to an app bar 
+  that floats under the header */
   .menu {
     grid-area: sticky;
     display: flex;
@@ -726,6 +725,7 @@ ul li::marker {
     margin: 0 0 0 16vw;
   }
 
+  /* changes the menu into a sticky sidebar */
   .menu {
     flex-direction: column;
     height: 100%;
@@ -762,6 +762,7 @@ ul li::marker {
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+  /* used to keep contents from expanding past the max size of the page div */
   .page-content {
     width: calc(0.8 * 1240px - 40px);
     margin-left: calc(0.2 * 1240px);

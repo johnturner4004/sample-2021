@@ -4,7 +4,6 @@ let open = '<i class="fas fa-bars"></i>';
 function onReady() {
   console.log("JS");
   remove_hash_from_url();
-  // $('.menu').toggle(menuState);
   $(".toggle-menu").on("click", menuOpen);
   $(".toggle-icon").append(open);
   $(".toggle-expand").on("click", expand);
@@ -12,6 +11,7 @@ function onReady() {
   applySetting();
 }
 
+// variables for local storage to save setting for light/dark mode
 const STORAGE_KEY = 'user-color-scheme';
 const COLOR_MODE_KEY = '--color-mode';
 
@@ -22,7 +22,6 @@ const COLOR_MODE_KEY = '--color-mode';
 const getCSSCustomProp = (propKey) => {
   let response = getComputedStyle(document.documentElement).getPropertyValue(propKey);
 
-  // Tidy up the string if there’s something to work with
   if (response.length) {
     response = response.replace(/\'|"/g, '').trim();
   }
@@ -31,6 +30,7 @@ const getCSSCustomProp = (propKey) => {
   return response;
 };
 
+//click handler for the light/dark mode toggle button
 const handleClick = () => {
   applySetting(toggleSetting());
 };
@@ -80,9 +80,7 @@ const toggleSetting = () => {
   return currentSetting;
 }
 
-/**
- * A shared method for setting the button text label and visually hidden status element 
- */
+// sets the icon for the light/dark mode toggle button
 const setButtonLabelAndStatus = currentSetting => { 
   let text = `${currentSetting === 'light' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>'}`;
   $('.toggle-button__icon').fadeOut(100, function () {
@@ -91,8 +89,7 @@ const setButtonLabelAndStatus = currentSetting => {
   $('.js-mode-status').text(`Color mode is now "${currentSetting}"`);
 }
 
-
-
+//clears the hash from the url on reload
 function remove_hash_from_url() {
   var uri = window.location.toString();
 
@@ -103,9 +100,11 @@ function remove_hash_from_url() {
   }
 }
 
+//variables used to set the icon of the menu button
 let menuState = false;
 let close = '<i class="fas fa-times"></i>';
 
+//opens and closes the menu for smaller screens
 function menuOpen() {
   $(".menu").animate({ width: "toggle" }, 500, "swing");
   menuState = !menuState;
@@ -120,6 +119,7 @@ function menuOpen() {
   }
 }
 
+//holds the current rotation of the icons on the button to collapse/expand buttons
 let rotation = {
   "toggle-expand-zeroone": 0,
   "toggle-expand-zerotwo": 0,

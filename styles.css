@@ -1,4 +1,5 @@
 :root {
+  --color-mode: "dark";
   --background1: #1c1c1c;
   --background2: #2c2c2c;
   --backgroundMenu: #2c2c2ccc;
@@ -15,6 +16,10 @@
 
 @media (prefers-color-scheme: light) {
   :root {
+    --color-mode: "light";
+  }
+  
+  :root:not([data-user-color-scheme]) {
     --background2: #fefefe;
     --backgroundMenu: #fefefeb3;
     --background3: #4c4c4c;
@@ -27,6 +32,39 @@
   }
 }
 
+[data-user-color-scheme="light"] {
+  --background2: #fefefe;
+    --backgroundMenu: #fefefeb3;
+    --background3: #4c4c4c;
+    --text: #3c3c3c;
+    --text2: white;
+    --shadow: #00000080;
+    --backgroundImg: url("./images/earth.jpeg");
+    --menuHover: #cfcfcf;
+    --menuActive: #b1b1b1;
+}
+
+/* Remove _all_ animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  body {
+    scroll-behavior: auto;
+  }
+
+  * {
+    -webkit-animation: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.user-toggle {
+  margin: 2rem auto 0 auto;
+  padding-top: 2.5rem;
+  max-width: 20rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
 body {
   background-color: var(--background1);
   display: flex;
@@ -36,6 +74,7 @@ body {
   background-size: cover;
   background-position: center;
   font-size: 18pt;
+  box-sizing: border-box;
 }
 
 .page {
@@ -51,6 +90,7 @@ body {
   grid-template-columns: 1fr;
   grid-template-areas: "header" "sticky";
   overflow: scroll;
+  overflow-x: hidden;
   position: relative;
 }
 
@@ -59,9 +99,10 @@ body {
   background: url("./images/TzG-banner.jpg");
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position-x: center;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
+  overflow-y: hidden;
   z-index: 2;
   position: relative;
   box-shadow: 0 5px 10px var(--shadowHeader);
@@ -90,6 +131,7 @@ body {
   top: 20px;
   margin-bottom: 0;
   margin-top: 0;
+  color: #ddd;
 }
 
 .toggle-menu {
@@ -179,15 +221,14 @@ body {
   background-color: var(--menuLinkActive) 6c;
 }
 
-.content {
-  margin-top: 60px;
-  margin-right: 40px;
-  margin-left: 40px;
-}
-
 .page-content {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  padding: 30px;
+  margin-top: 60px;
+  margin-right: 40px;
+  margin-left: 40px;
 }
 
 .profile-image {
@@ -345,19 +386,24 @@ body {
 
 #card-1 {
   float: left;
+  margin-right: 20px;
 }
 
 #card-2 {
   float: right;
+  margin-left: 20px;
 }
 
 #card-3 {
   float: left;
+  margin-right: 20px;
 }
 
 .section-break {
-  clear: both;
   display: block;
+  height: 1px;
+  width: 100vw;
+  clear: both;
 }
 
 #zeroone .card-image {
@@ -400,24 +446,11 @@ ul li::marker {
   color: var(--text);
 }
 
-#fortnitePic {
-  float: right;
-  margin-right: 20px;
-}
-
-#minecraftPic {
-  float: left;
-  margin-right: 20px;
-}
-
-#destiny2Pic {
-  float: right;
-  margin-left: 20px;
-}
-
 .contact-list {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  width: calc(100% - 120px);
 }
 
 .contact {
@@ -443,7 +476,20 @@ ul li::marker {
   flex-direction: row;
   z-index: 6;
   padding: 20px;
+  height: 40px;
   background-color: var(--TzGPurple);
+}
+
+.visually-hidden {
+  display: block;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(1px);
+  white-space: nowrap;
+  position: absolute;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -459,7 +505,7 @@ ul li::marker {
   }
 
   .header-sticky-title {
-    height: 52vw;
+    height: 80px;
   }
 
   .toggle-menu {
@@ -474,14 +520,13 @@ ul li::marker {
   .page-content {
     display: flex;
     flex-direction: column;
-
+    
     padding-top: 0;
     height: 100%;
-  }
-
-  .content {
-    display: flex;
-    flex-direction: column;
+    margin: 0;
+    padding: 20px;
+    width: calc(100vw - 100px);
+    justify-content: center;
     align-items: center;
   }
 
@@ -492,6 +537,20 @@ ul li::marker {
   .toggle-player {
     width: 100%;
   }
+
+  .player {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .games {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .game-art {
+    width: calc(100vw - 200px);
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -499,23 +558,66 @@ ul li::marker {
   body {
   }
 
+  .header {
+    height: 52vw;
+    max-height: none;
+    background-position-x: center;
+  }
+
   .page {
     grid-template-rows: 300px 1fr;
+  }
+
+  .page-content {
+    margin: 0;
+    padding: 20px;
+    width: calc(100vw - 100px);
+  }
+
+  .player {
+    flex-direction: column;
   }
 
   .header {
     background-size: cover;
     height: 300px;
+    /* max-height: 300px; */
+  }
+
+  .game-frame {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #fortnitePic {
+    width: 100%;
+    height: auto;
+    float: none;
+  }
+
+  #minecraftPic {
+    width: 100%;
+    height: auto;
+  }
+
+  #destiny2Pic {
+    width: 100%;
+    height: auto;
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+  .header {
+    max-height: 300px;
+    overflow: hidden;
+  }
+
   .menu {
     grid-area: sticky;
     display: flex;
     flex-direction: row;
-    height: 100%;
+    height: 75px;
     position: sticky;
     top: 80px;
     left: 0;
@@ -553,6 +655,28 @@ ul li::marker {
   .toggle-menu {
     display: none;
   }
+
+  #fortnitePic {
+    float: right;
+    margin-left: 0;
+    max-height: 300px;
+    width: max-content;
+  }
+
+  #minecraftPic {
+    float: left;
+    margin-right: 0;
+    max-height: 300px;
+    width: max-content;
+    
+  }
+
+  #destiny2Pic {
+    float: right;
+    margin-left: 0;
+    max-height: 300px;
+    width: max-content;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -564,20 +688,26 @@ ul li::marker {
     grid-template-rows: 300px 1fr;
   }
 
+  .player {
+    flex-direction: row;
+  }
+
   .header {
     grid-area: header;
   }
 
   .page-content {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
     grid-area: sticky;
+    width: calc(80vw - 40px);
+    margin: 0 0 0 16vw;
   }
 
   .menu {
     flex-direction: column;
     height: 100%;
-    width: 20%;
+    width: calc(20vw - 40px);
     grid-area: sticky;
     justify-content: flex-start;
   }
@@ -603,13 +733,20 @@ ul li::marker {
     transition: all 0.1s ease-in-out;
   }
 
-  .content {
-    width: 75%;
+  .games {
+    flex-direction: row;
   }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  body {
+  .page-content {
+    width: calc(0.8 * 1240px - 40px);
+    margin-left: calc(0.2 * 1240px);
+    padding-right: 20px;
+  }
+
+  .menu {
+    width: calc(0.2 * 1240px);
   }
 }

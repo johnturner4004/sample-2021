@@ -49,6 +49,7 @@ To use this simply fork the repository and clone it to your computer. Then use y
 ## License
 
 <a href="https://choosealicense.com/licenses/mit/"><img src="https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/mit.svg" height=40 />MIT License</a>
+
 ## Acknowledgements
 
 Special thanks to [Prime Academy](https://www.primeacademy.io/) for providing the education I needed to make this and to both the Turner and Hendrickson families for their financial and emotional support while attending Prime Academy.

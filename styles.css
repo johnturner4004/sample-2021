@@ -5,8 +5,8 @@
   --background2: #2c2c2c;
   --backgroundMenu: #2c2c2ccc;
   --menuActive: #3c3c3c;
-  --menuHover: #4c4c4c;
-  --menuLinkActive: #cccccc;
+  --menuHover: #4c4c4c6c;
+  --menuLinkActive: #cccccc6c;
   --text: #ddd;
   --text2: #ddd;
   --TzGPurple: #ad00ff;
@@ -220,17 +220,17 @@ body {
   width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: var(--background1) 6c;
+  background-color: var(--background1);
   text-align: center;
   position: relative;
 }
 
 .menu-link:hover {
-  background-color: var(--menuHover) 6c;
+  background-color: var(--menuHover);
 }
 
 .menu-link:active {
-  background-color: var(--menuLinkActive) 6c;
+  background-color: var(--menuLinkActive);
 }
 
 .page-content {
@@ -305,7 +305,7 @@ body {
   font-weight: 300;
 }
 
-.card-text h2 {
+.card-text h3 {
   margin-top: 0;
   font-size: 28px;
 }
@@ -426,6 +426,10 @@ body {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-size: cover;
+}
+
+.player-description {
+  padding: 10px;
 }
 
 /* removes the default bullets */

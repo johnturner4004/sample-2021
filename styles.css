@@ -511,6 +511,7 @@ ul li::marker {
   align-items: center;
   padding: 10px;
   border: none;
+  z-index: 7;
   box-shadow: 0 0 10px var(--shadow);
 }
 
@@ -572,10 +573,6 @@ ul li::marker {
     display: flex;
     flex-direction: column;
   }
-
-  .game-art {
-    width: calc(100vw - 200px);
-  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -609,22 +606,6 @@ ul li::marker {
   .game-frame {
     display: flex;
     flex-direction: column;
-  }
-
-  #fortnitePic {
-    width: 100%;
-    height: auto;
-    float: none;
-  }
-
-  #minecraftPic {
-    width: 100%;
-    height: auto;
-  }
-
-  #destiny2Pic {
-    width: 100%;
-    height: auto;
   }
 }
 

@@ -25,6 +25,7 @@
 
   /* custom properties for light mode when set by system settings*/
   :root:not([data-user-color-scheme]) {
+    --background1: #eee;
     --background2: #fefefe;
     --backgroundMenu: #fefefeb3;
     --background3: #4c4c4c;
@@ -43,6 +44,7 @@
 /* if set by toggle buttom the setting is stored in local storage */
 /* to remember the users preference even after refresh */
 [data-user-color-scheme="light"] {
+  --background1: #eee;
   --background2: #fefefe;
   --backgroundMenu: #fefefeb3;
   --background3: #4c4c4c;
